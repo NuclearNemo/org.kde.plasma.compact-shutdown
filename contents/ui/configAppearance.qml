@@ -1,9 +1,10 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.12
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasmoid
 
-Item {
+PlasmoidItem {
 
     property alias cfg_showLogout: showLogout.checked
     property alias cfg_showLockscreen: showLockscreen.checked

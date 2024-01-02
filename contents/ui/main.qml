@@ -3,15 +3,15 @@
 // - Michail Vourlakos from https://github.com/psifidotos/applet-latte-sidebar-button
 // - Jakub Lipinski from https://gitlab.com/divinae/uswitch
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.4
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import org.kde.plasma.plasmoid
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasma5support as Plasma5Support
 
-Item {
+PlasmoidItem {
     id: root
     
     property bool showLogout: plasmoid.configuration.showLogout
@@ -27,8 +27,8 @@ Item {
     width: 180
     height: 180
 
-    Plasmoid.compactRepresentation: Item {
-        PlasmaCore.IconItem {
+    compactRepresentation: Item {
+        Kirigami.Icon {
             anchors.fill: parent
             source: "system-shutdown"
         }
@@ -43,7 +43,7 @@ Item {
         }
     }
 
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         id: executable
         engine: "executable"
         connectedSources: []
@@ -82,18 +82,18 @@ Item {
          executable.exec('qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Hibernate')
     }
 
-    PlasmaComponents.Highlight {
+    PlasmaExtras.Highlight {
         id: delegateHighlight
         visible: false
 //         hovered: true
         z: -1 // otherwise it shows ontop of the icon/label and tints them slightly
     }
 
-    Plasmoid.fullRepresentation: Item {
+    fullRepresentation: Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.preferredWidth: plasmoid.configuration.width * PlasmaCore.Units.devicePixelRatio
-        Layout.preferredHeight: plasmoid.configuration.height * PlasmaCore.Units.devicePixelRatio
+        Layout.preferredWidth: plasmoid.configuration.width
+        Layout.preferredHeight: plasmoid.configuration.height
 
         ColumnLayout {
             id: column

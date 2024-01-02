@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "varlesh@gmail.com",
+                "Name": "Alexey Varfolomeev"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Compact ShutDown widget",
+        "EnabledByDefault": true,
+        "Icon": "system-shutdown",
+        "Id": "org.kde.plasma.compact-shutdown",
+        "License": "GPL",
+        "Name": "Compact ShutDown",
+        "Version": "1.1",
+        "Website": "https://github.com/varlesh/org.kde.plasma.compact-shutdown"
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell",
+    "X-Plasma-DefaultSize": "180,180",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

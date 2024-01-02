@@ -17,13 +17,15 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  2.010-1301, USA.
  */
-import QtQuick 2.2
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Layouts
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasmoid
 
-Item {
+PlasmoidItem {
     id: item
 
     signal clicked
@@ -71,7 +73,7 @@ Item {
         width: parent.width - units.smallSpacing
         spacing: units.smallSpacing
 
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             id: icon
             // gosh, there needs to be a Layout.fixedWidth
             Layout.minimumWidth: 1.6 * units.iconSizes.small
