@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
 
-PlasmoidItem {
+Item {
 
     property alias cfg_showLogout: showLogout.checked
     property alias cfg_showLockscreen: showLockscreen.checked
@@ -58,8 +58,8 @@ PlasmoidItem {
         }
         
         Kirigami.FormLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
+        //anchors.left: parent.left
+        //anchors.right: parent.right
 
         RowLayout {
             Kirigami.FormData.label: i18n("Size:")

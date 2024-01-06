@@ -25,7 +25,7 @@ import org.kde.plasma.components as PlasmaComponents
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
 
-PlasmoidItem {
+Item {
     id: item
 
     signal clicked
@@ -70,16 +70,16 @@ PlasmoidItem {
     RowLayout {
         id: row
         anchors.centerIn: parent
-        width: parent.width - units.smallSpacing
-        spacing: units.smallSpacing
+        width: parent.width - Kirigami.Units.smallSpacing
+        spacing: Kirigami.Units.smallSpacing
 
         Kirigami.Icon {
             id: icon
             // gosh, there needs to be a Layout.fixedWidth
-            Layout.minimumWidth: 1.6 * units.iconSizes.small
-            Layout.maximumWidth: 1.6 * units.iconSizes.small
-            Layout.minimumHeight: 1.6 * units.iconSizes.small
-            Layout.maximumHeight: 1.6 * units.iconSizes.small
+            Layout.minimumWidth: 1.6 * Kirigami.Units.iconSizes.small
+            Layout.maximumWidth: 1.6 * Kirigami.Units.iconSizes.small
+            Layout.minimumHeight: 1.6 * Kirigami.Units.iconSizes.small
+            Layout.maximumHeight: 1.6 * Kirigami.Units.iconSizes.small
 
             MouseArea {
                 anchors.fill: parent
@@ -106,7 +106,7 @@ PlasmoidItem {
                 wrapMode: Text.NoWrap
                 elide: Text.ElideRight
                 opacity: 0.6
-                font: theme.smallestFont
+                font: Kirigami.Theme.smallFont
                 visible: text !== ""
             }
         }

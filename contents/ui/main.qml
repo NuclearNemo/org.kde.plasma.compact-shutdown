@@ -38,7 +38,7 @@ PlasmoidItem {
             anchors.fill: parent
 
             onClicked: {
-                plasmoid.expanded = !plasmoid.expanded
+                expanded = !expanded
             }
         }
     }
@@ -55,43 +55,51 @@ PlasmoidItem {
     }
 
     function action_logOut() {
-        executable.exec('qdbus org.kde.ksmserver /KSMServer logout 0 0 2')
+        expanded = false
+        executable.exec('qdbus org.kde.Shutdown /Shutdown  org.kde.Shutdown.logout')
     }
 
     function action_reBoot() {
-        executable.exec('qdbus org.kde.ksmserver /KSMServer logout 0 1 2')
+        expanded = false
+        executable.exec('qdbus org.kde.Shutdown /Shutdown  org.kde.Shutdown.logoutAndReboot')
     }
 
     function action_kexec() {
+        expanded = false
         executable.exec('qdbus --system org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.StartUnit kexec.target replace-irreversibly')
     }
     
     function action_lockScreen() {
+        expanded = false
         executable.exec('qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock')
     }
 
     function action_shutDown() {
-        executable.exec('qdbus org.kde.ksmserver /KSMServer logout 0 2 2')
+        expanded = false
+        executable.exec('qdbus org.kde.Shutdown /Shutdown  org.kde.Shutdown.logoutAndShutdown')
     }
     
     function action_susPend() {
-         executable.exec('qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend')
+        expanded = false
+        executable.exec('qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend')
     }
     
     function action_hiberNate() {
-         executable.exec('qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Hibernate')
+        expanded = false
+        executable.exec('qdbus org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Hibernate')
     }
 
     PlasmaExtras.Highlight {
         id: delegateHighlight
         visible: false
-//         hovered: true
+         hovered: true
         z: -1 // otherwise it shows ontop of the icon/label and tints them slightly
     }
 
     fullRepresentation: Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+        
+        Layout.fillWidth: false
+        Layout.fillHeight: false
         Layout.preferredWidth: plasmoid.configuration.width
         Layout.preferredHeight: plasmoid.configuration.height
 
